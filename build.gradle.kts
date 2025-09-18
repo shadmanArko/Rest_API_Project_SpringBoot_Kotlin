@@ -29,12 +29,15 @@ dependencies {
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+    implementation(platform("org.mongodb:mongodb-driver-bom:5.5.1"))
+    implementation("org.mongodb:mongodb-driver-kotlin-coroutine")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test")
     testImplementation("org.springframework.security:spring-security-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
 
     compileOnly("jakarta.servlet:jakarta.servlet-api:6.1.0")
     implementation("io.jsonwebtoken:jjwt-api:0.12.6")
