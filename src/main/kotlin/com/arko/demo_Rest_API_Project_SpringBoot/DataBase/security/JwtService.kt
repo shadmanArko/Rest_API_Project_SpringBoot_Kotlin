@@ -11,12 +11,12 @@ import javax.crypto.SecretKey
 
 @Service
 class JwtService(
-    @Value("JWT_SECRET_BASE64") private val jwtSecret: String
+    @Value("\${jwt.secret}") private val jwtSecret: String
 ) {
     private val secretkey = Keys.hmacShaKeyFor(Base64.getDecoder().decode(jwtSecret))
 
     private val accessTokenValidityMs = 15L * 60L * 1000L
-    private val refreshTokenValidityMs = 30L * 24L * 60L * 60L * 1000L
+     val refreshTokenValidityMs = 30L * 24L * 60L * 60L * 1000L
 
     private fun generateToken(
         userId: String,
@@ -52,7 +52,7 @@ class JwtService(
             Jwts.parser()
                 .verifyWith(secretkey)
                 .build()
-                .parseSignedClaims(token)
+                .parseSignedClaims(rawToken)
                 .payload
         }
         catch (e: Exception){

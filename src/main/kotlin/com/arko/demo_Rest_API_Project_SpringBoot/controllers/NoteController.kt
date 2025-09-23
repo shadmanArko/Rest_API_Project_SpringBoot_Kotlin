@@ -3,6 +3,7 @@ package com.arko.demo_Rest_API_Project_SpringBoot.controllers
 import com.arko.demo_Rest_API_Project_SpringBoot.DataBase.model.Note
 import com.arko.demo_Rest_API_Project_SpringBoot.DataBase.repository.NoteRepository
 import org.bson.types.ObjectId
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -34,6 +35,7 @@ class NoteController (private val repository: NoteRepository) {
 
     @PostMapping
     fun save(@RequestBody body: NoteRequest): NoteResponse {
+        val ownerId = SecurityContextHolder.getContext().authentication.principal as String
         val note = repository.save(
             Note(
                 id = body.id?.let { ObjectId(it) } ?: ObjectId(),
@@ -41,15 +43,15 @@ class NoteController (private val repository: NoteRepository) {
                 content = body.content,
                 color = body.color,
                 createdAt = Instant.now(),
-                ownerId = ObjectId()
+                ownerId = ObjectId(ownerId)
             )
         )
         return note.toResponse()
     }
 
     @GetMapping
-    fun findByOwnerId(
-        @RequestParam(required = true) ownerId: String): List<NoteResponse> {
+    fun findByOwnerId(): List<NoteResponse> {
+        val ownerId = SecurityContextHolder.getContext().authentication.principal as String
         return repository.findByOwnerId(ObjectId(ownerId))
             .map {
                 it.toResponse()
@@ -57,8 +59,14 @@ class NoteController (private val repository: NoteRepository) {
     }
 
     @DeleteMapping("/{id}")
-    fun delete(@PathVariable id: ObjectId) {
-        repository.deleteById(id)
+    fun delete(@PathVariable id: String) {
+        val note = repository.findById(ObjectId(id)).orElseThrow {
+            IllegalStateException("Note not found")
+        }
+        val ownerId = SecurityContextHolder.getContext().authentication.principal as String
+        if (note.ownerId.toHexString() == ownerId) {
+            repository.deleteById(ObjectId(id))
+        }
     }
 
     private fun Note.toResponse(): NoteResponse {
