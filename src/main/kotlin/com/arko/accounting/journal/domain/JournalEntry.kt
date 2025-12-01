@@ -30,4 +30,7 @@ class JournalEntry(
 
     @CreationTimestamp
     val createdAt: Instant? = null
-)
+) {
+    @OneToMany(mappedBy = "journalEntry", cascade = [CascadeType.ALL], orphanRemoval = true, fetch = FetchType.LAZY)
+    val lines: MutableList<JournalLine> = mutableListOf()
+}
