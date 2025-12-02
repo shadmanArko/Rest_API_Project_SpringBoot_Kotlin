@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -16,7 +17,7 @@ import java.time.Instant
 
 
 @RestController
-@RequestMapping("/note")
+@RequestMapping("/notes")
 class NoteController (private val repository: NoteRepository) {
     data class NoteRequest(
         val id: String?,
@@ -68,6 +69,33 @@ class NoteController (private val repository: NoteRepository) {
             repository.deleteById(ObjectId(id))
         }
     }
+
+    @PutMapping("/{id}")
+    fun update(@PathVariable id: String, @RequestBody body: NoteRequest): NoteResponse {
+        return try {
+            val ownerId = SecurityContextHolder.getContext().authentication.principal as String
+            val existingNote = repository.findById(ObjectId(id)).orElseThrow {
+                IllegalStateException("Note not found")
+            }
+
+            if (existingNote.ownerId.toHexString() != ownerId) {
+                throw IllegalAccessException("You are not authorized to update this note")
+            }
+
+            val updatedNote = existingNote.copy(
+                title = body.title,
+                content = body.content,
+                color = body.color
+            )
+
+            repository.save(updatedNote).toResponse()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            throw RuntimeException("Error updating note: ${e.message}")
+        }
+    }
+
+
 
     private fun Note.toResponse(): NoteResponse {
         return NoteResponse(

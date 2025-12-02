@@ -1,0 +1,141 @@
+/* JournalEntry.css */
+.journal-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.card {
+    background-color: var(--bg-secondary);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.lines-container {
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.lines-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.lines-table th {
+    background-color: var(--bg-tertiary);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.lines-table td {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+}
+
+.lines-table tfoot td {
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-tertiary);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.line-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+    background-color: transparent;
+    color: var(--text-primary);
+}
+
+.line-input:focus {
+    border-color: var(--accent-primary);
+    background-color: var(--bg-primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.line-input:hover {
+    background-color: var(--bg-primary);
+}
+
+.text-right {
+    text-align: right;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.375rem;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    color: var(--danger);
+    background-color: var(--danger-bg);
+}
+
+.icon-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--accent-primary);
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+}
+
+.btn-text:hover {
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+.error-message {
+    color: var(--danger);
+    font-weight: 500;
+    font-size: 0.875rem;
+}

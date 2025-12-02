@@ -1,0 +1,101 @@
+:root {
+  /* Dark Mode Palette */
+  --bg-primary: #0f172a;
+  /* Slate 900 - Main background */
+  --bg-secondary: #1e293b;
+  /* Slate 800 - Cards, Sidebar */
+  --bg-tertiary: #334155;
+  /* Slate 700 - Hover states, Inputs */
+
+  --text-primary: #f8fafc;
+  /* Slate 50 - Main text */
+  --text-secondary: #94a3b8;
+  /* Slate 400 - Subtitles, labels */
+  --text-muted: #64748b;
+  /* Slate 500 - Disabled, placeholders */
+
+  --border-color: #334155;
+  /* Slate 700 */
+
+  --accent-primary: #6366f1;
+  /* Indigo 500 */
+  --accent-hover: #4f46e5;
+  /* Indigo 600 */
+  --accent-text: #ffffff;
+
+  --success: #10b981;
+  --success-bg: rgba(16, 185, 129, 0.1);
+  --danger: #ef4444;
+  --danger-bg: rgba(239, 68, 68, 0.1);
+  --warning: #f59e0b;
+  --warning-bg: rgba(245, 158, 11, 0.1);
+
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+  margin-top: 0;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--accent-primary);
+  border-color: transparent;
+}
