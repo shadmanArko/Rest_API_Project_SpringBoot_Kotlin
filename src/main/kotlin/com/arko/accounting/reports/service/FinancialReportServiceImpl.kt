@@ -24,7 +24,12 @@ class FinancialReportServiceImpl(
 
             val items = sectionAccounts.map { acc ->
                 val entries = ledgerRepo.findByAccountId(acc.id)
-                val balance = entries.sumOf { it.debit - it.credit }
+                // Calculate balance based on normal balance type
+                val balance = if (type == AccountType.ASSET || type == AccountType.EXPENSE) {
+                    entries.sumOf { it.debit - it.credit }
+                } else {
+                    entries.sumOf { it.credit - it.debit }
+                }
                 BalanceSheetItemDto(acc.name, balance)
             }
 
@@ -39,9 +44,28 @@ class FinancialReportServiceImpl(
 
         val assets = calc(AccountType.ASSET)
         val liabilities = calc(AccountType.LIABILITY)
-        val equity = calc(AccountType.EQUITY)
+        
+        // Calculate Equity
+        val equityBase = calc(AccountType.EQUITY)
+        
+        // Calculate Net Income for Retained Earnings
+        val revenue = calc(AccountType.REVENUE)
+        val expenses = calc(AccountType.EXPENSE)
+        val netIncome = revenue.total - expenses.total
 
-        val isBalanced = assets.total == liabilities.total + equity.total
+        // Add Net Income to Equity items
+        val equityItems = equityBase.items.toMutableList()
+        equityItems.add(BalanceSheetItemDto("Net Income", netIncome))
+        
+        val equityTotal = equityBase.total + netIncome
+        
+        val equity = BalanceSheetSectionDto(
+            title = "Equity",
+            items = equityItems,
+            total = equityTotal
+        )
+
+        val isBalanced = assets.total.compareTo(liabilities.total + equity.total) == 0
 
         return BalanceSheetDto(
             assets = assets,
@@ -60,7 +84,12 @@ class FinancialReportServiceImpl(
 
             val items = sectionAccounts.map { acc ->
                 val entries = ledgerRepo.findByAccountId(acc.id)
-                val amount = entries.sumOf { it.credit - it.debit } // revenues positive
+                // Calculate balance based on normal balance type
+                val amount = if (type == AccountType.EXPENSE) {
+                    entries.sumOf { it.debit - it.credit }
+                } else {
+                    entries.sumOf { it.credit - it.debit }
+                }
                 IncomeStatementItemDto(acc.name, amount)
             }
 

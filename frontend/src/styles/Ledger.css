@@ -1,0 +1,73 @@
+/* Ledger.css */
+.ledger-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.ledger-header {
+    padding: 1.5rem;
+}
+
+.account-select {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.section-title {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.ledger-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ledger-table th {
+    background-color: var(--bg-tertiary);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ledger-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.ledger-table tfoot td {
+    background-color: var(--bg-tertiary);
+    border-top: 2px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+}
+
+.ref-link {
+    color: var(--accent-primary);
+    font-family: 'JetBrains Mono', monospace;
+    cursor: pointer;
+}
+
+.ref-link:hover {
+    text-decoration: underline;
+    color: var(--accent-hover);
+}
+
+.text-muted {
+    color: var(--text-secondary);
+}
