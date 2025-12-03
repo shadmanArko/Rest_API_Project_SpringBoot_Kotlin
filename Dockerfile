@@ -6,7 +6,7 @@ COPY gradlew build.gradle.kts settings.gradle.kts ./
 RUN chmod +x gradlew
 RUN ./gradlew dependencies --no-daemon || true
 COPY src/ src/
-RUN ./gradlew bootJar --no-daemon
+RUN ./gradlew bootJar -x test --no-daemon
 
 # Run Stage
 FROM eclipse-temurin:17-jre-jammy
