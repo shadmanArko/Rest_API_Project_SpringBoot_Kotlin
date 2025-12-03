@@ -8,8 +8,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 class WebConfig : WebMvcConfigurer {
 
     override fun addCorsMappings(registry: CorsRegistry) {
+        val frontendUrl = System.getenv("FRONTEND_URL") ?: "http://localhost:5173"
         registry.addMapping("/**")
-            .allowedOrigins("http://localhost:5173") // Vite default port
+            .allowedOrigins(frontendUrl)
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
             .allowedHeaders("*")
             .allowCredentials(true)
