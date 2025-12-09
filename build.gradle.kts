@@ -1,7 +1,7 @@
  plugins {
 	kotlin("jvm") version "1.9.25"
 	kotlin("plugin.spring") version "1.9.25"
-	id("org.springframework.boot") version "3.5.5"
+	id("org.springframework.boot") version "3.2.11"
 	id("io.spring.dependency-management") version "1.1.7"
 }
 
@@ -19,6 +19,12 @@ repositories {
 	mavenCentral()
 }
 
+dependencyManagement {
+	imports {
+		mavenBom("org.springframework.cloud:spring-cloud-dependencies:2023.0.0")
+	}
+}
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
@@ -32,6 +38,7 @@ dependencies {
     implementation(platform("org.mongodb:mongodb-driver-bom:5.5.1"))
     implementation("org.mongodb:mongodb-driver-kotlin-coroutine")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
     runtimeOnly("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")

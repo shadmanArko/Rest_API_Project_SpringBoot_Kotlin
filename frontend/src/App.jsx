@@ -7,6 +7,8 @@ import JournalEntry from './pages/JournalEntry';
 import Ledger from './pages/Ledger';
 import Reports from './pages/Reports';
 
+import AnalyticsDashboard from './pages/AnalyticsDashboard';
+
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +19,7 @@ function App() {
           <Route path="/journal" element={<JournalEntry />} />
           <Route path="/ledger" element={<Ledger />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/analytics" element={<AnalyticsDashboard />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>

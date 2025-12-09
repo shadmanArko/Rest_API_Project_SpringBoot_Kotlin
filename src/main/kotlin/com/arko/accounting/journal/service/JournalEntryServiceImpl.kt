@@ -9,13 +9,20 @@ import com.arko.accounting.ledger.service.LedgerService
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.util.*
+import com.arko.accounting.client.AnalyticsClient
+import com.arko.accounting.client.AnalyticsEventDto
+import org.slf4j.LoggerFactory
+import java.math.BigDecimal
 
 @Service
 class JournalEntryServiceImpl(
     private val entryRepo: JournalEntryRepository,
     private val lineRepo: JournalLineRepository,
-    private val ledgerService: LedgerService
+    private val ledgerService: LedgerService,
+    private val analyticsClient: AnalyticsClient
 ) : JournalEntryService {
+
+    private val logger = LoggerFactory.getLogger(JournalEntryServiceImpl::class.java)
 
     @Transactional
     override fun create(companyId: UUID, req: CreateJournalEntryRequest): JournalEntryDto {
@@ -47,6 +54,22 @@ class JournalEntryServiceImpl(
 
         // POST TO LEDGER
         ledgerService.postJournalEntry(entry)
+
+        // SEND ANALYTICS EVENT (Best Effort)
+        try {
+            val totalDebit = lines.sumOf { it.debit }
+            analyticsClient.sendEvent(
+                AnalyticsEventDto(
+                    source = "accounting_service",
+                    eventType = "journal_entry_created",
+                    amount = totalDebit,
+                    currency = "USD" // Defaulting to USD for now
+                )
+            )
+        } catch (e: Exception) {
+            logger.error("Failed to send analytics event", e)
+            // Do not rethrow - analytics failure should not rollback transaction
+        }
 
         return entry.toDto(lines)
     }

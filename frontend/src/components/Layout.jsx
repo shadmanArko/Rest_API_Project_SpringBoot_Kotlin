@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, FileText, PieChart, PlusCircle } from 'lucide-react';
+import { LayoutDashboard, BookOpen, FileText, PieChart, PlusCircle, BarChart2 } from 'lucide-react';
 import '../styles/Layout.css';
 
 const Layout = ({ children }) => {
@@ -8,6 +8,7 @@ const Layout = ({ children }) => {
 
     const navItems = [
         { path: '/', label: 'Dashboard', icon: LayoutDashboard },
+        { path: '/analytics', label: 'Analytics', icon: BarChart2 },
         { path: '/accounts', label: 'Chart of Accounts', icon: BookOpen },
         { path: '/journal', label: 'New Journal Entry', icon: PlusCircle },
         { path: '/ledger', label: 'General Ledger', icon: FileText },
