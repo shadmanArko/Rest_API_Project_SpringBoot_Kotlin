@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Main-Class: org.springframework.boot.loader.launch.JarLauncher
+Start-Class: com.arko.demo_Rest_API_Project_SpringBoot.DemoRestApiProjec
+ tSpringBootApplicationKt
+Spring-Boot-Version: 3.2.11
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Spring-Boot-Classpath-Index: BOOT-INF/classpath.idx
+Spring-Boot-Layers-Index: BOOT-INF/layers.idx
+Build-Jdk-Spec: 17
+Implementation-Title: demo_Rest_API_Project_SpringBoot
+Implementation-Version: 0.0.1-SNAPSHOT
+

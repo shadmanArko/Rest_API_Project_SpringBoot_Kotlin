@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: demo_Rest_API_Project_SpringBoot_Test
+  
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/test_db
+  
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+  
+  kafka:
+    bootstrap-servers: localhost:9092
+
+jwt:
+  secret: dGVzdC1zZWNyZXQtZm9yLXRlc3RpbmctcHVycG9zZXMtb25seS1kb25vdHVzZWluLXByb2R1Y3Rpb24=
+
+app:
+  kafka:
+    topic: test-events
+  clickhouse:
+    enabled: false
+    url: jdbc:clickhouse://localhost:8123/test
+    user: default
+    password: test

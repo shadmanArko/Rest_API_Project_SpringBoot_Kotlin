@@ -29,3 +29,16 @@ minio:
   access-key: minioadmin
   secret-key: minioadmin
   bucket: raw-events
+
+app:
+  kafka:
+    topic: normalized-events
+  clickhouse:
+    url: jdbc:clickhouse://localhost:8123/analytics
+    user: default
+    password:
+  s3:
+    endpoint: http://localhost:9000
+    access-key: minioadmin
+    secret-key: minioadmin
+    bucket: raw-events

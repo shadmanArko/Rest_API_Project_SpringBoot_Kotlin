@@ -5,11 +5,11 @@ import com.arko.accounting.journal.dto.CreateJournalEntryRequest
 import com.arko.accounting.journal.dto.JournalEntryDto
 import com.arko.accounting.journal.dto.JournalLineDto
 import com.arko.accounting.journal.service.JournalEntryService
+import com.arko.accounting.ledger.service.LedgerService
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Test
-import org.mockito.ArgumentMatchers.any
-import org.mockito.ArgumentMatchers.eq
-import org.mockito.Mockito.`when`
+import org.mockito.ArgumentMatchers
+import org.mockito.Mockito
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
@@ -24,23 +24,34 @@ import java.util.*
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.Import
 import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.context.ActiveProfiles
 
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
-import org.mockito.Mockito
 
 @ContextConfiguration(classes = [JournalEntryControllerTest.TestApplication::class])
 @WebMvcTest(JournalEntryController::class)
 @AutoConfigureMockMvc(addFilters = false)
+@ActiveProfiles("test")
 class JournalEntryControllerTest {
 
     @SpringBootApplication(scanBasePackages = ["com.arko.accounting.journal.controller"])
     class TestApplication
+    
+    // Helper function to work around Kotlin null safety with Mockito
+    private fun <T> anyNonNull(type: Class<T>): T {
+        ArgumentMatchers.any(type)
+        @Suppress("UNCHECKED_CAST")
+        return null as T
+    }
 
     @Autowired
     private lateinit var mockMvc: MockMvc
 
     @MockBean
     private lateinit var service: JournalEntryService
+
+    @MockBean
+    lateinit var ledgerService: LedgerService
 
     @Autowired
     private lateinit var objectMapper: ObjectMapper
@@ -68,18 +79,13 @@ class JournalEntryControllerTest {
              lines = req.lines
         )
 
-        `when`(service.create(eq(companyId), anyCreateRequest())).thenReturn(responseDto)
+        Mockito.`when`(service.create(anyNonNull(UUID::class.java), anyNonNull(CreateJournalEntryRequest::class.java))).thenReturn(responseDto)
 
         mockMvc.perform(post("/journal-entries")
             .header("X-Company-ID", companyId)
             .contentType(MediaType.APPLICATION_JSON)
             .content(objectMapper.writeValueAsString(req)))
             .andExpect(status().isOk)
-    }
-
-    private fun anyCreateRequest(): CreateJournalEntryRequest {
-        Mockito.any(CreateJournalEntryRequest::class.java)
-        return CreateJournalEntryRequest(LocalDate.now(), null, null, emptyList())
     }
 
     @Test

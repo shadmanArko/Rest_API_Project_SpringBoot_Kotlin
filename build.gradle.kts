@@ -39,6 +39,11 @@ dependencies {
     implementation("org.mongodb:mongodb-driver-kotlin-coroutine")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+    implementation("org.springframework.kafka:spring-kafka")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+    implementation("com.clickhouse:clickhouse-jdbc:0.8.0")
+    implementation("org.apache.httpcomponents.client5:httpclient5:5.2.1")
     runtimeOnly("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
@@ -46,6 +51,8 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test")
     testImplementation("org.springframework.security:spring-security-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("org.springframework.kafka:spring-kafka-test")
+    testImplementation("com.h2database:h2")
 
 
     compileOnly("jakarta.servlet:jakarta.servlet-api:6.1.0")
