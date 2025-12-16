@@ -34,6 +34,7 @@ app:
   kafka:
     topic: normalized-events
   clickhouse:
+    enabled: true
     url: jdbc:clickhouse://localhost:8123/analytics
     user: default
     password:
