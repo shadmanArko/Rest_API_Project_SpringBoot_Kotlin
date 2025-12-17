@@ -13,7 +13,8 @@ import java.time.ZoneOffset
 @Service
 @ConditionalOnProperty(name = ["app.clickhouse.enabled"], havingValue = "true", matchIfMissing = false)
 class AnalyticsQueryService(
-    private val clickhouseConnection: Connection
+    @org.springframework.beans.factory.annotation.Qualifier("clickHouseDataSource")
+    private val dataSource: javax.sql.DataSource
 ) {
 
     /**
@@ -33,26 +34,28 @@ class AnalyticsQueryService(
             sql.append(" AND platform = ?")
         }
 
-        clickhouseConnection.prepareStatement(sql.toString()).use { ps ->
-            ps.setObject(1, from)
-            ps.setObject(2, to)
-            if (!platform.isNullOrBlank()) ps.setString(3, platform)
+        dataSource.connection.use { conn ->
+            conn.prepareStatement(sql.toString()).use { ps ->
+                ps.setObject(1, from)
+                ps.setObject(2, to)
+                if (!platform.isNullOrBlank()) ps.setString(3, platform)
 
-            ps.executeQuery().use { rs ->
-                if (!rs.next()) {
-                    return OverviewDto(BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, 0L, BigDecimal.ZERO)
+                ps.executeQuery().use { rs ->
+                    if (!rs.next()) {
+                        return OverviewDto(BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, 0L, BigDecimal.ZERO)
+                    }
+                    val spend = rs.getDouble("total_spend").let { BigDecimal.valueOf(it) }
+                    val revenue = rs.getDouble("total_revenue").let { BigDecimal.valueOf(it) }
+                    val orders = rs.getLong("total_orders")
+
+                    val roas = if (spend.compareTo(BigDecimal.ZERO) == 0) BigDecimal.ZERO
+                    else revenue.divide(spend, 4, BigDecimal.ROUND_HALF_UP)
+
+                    val avgCpa = if (orders == 0L) BigDecimal.ZERO
+                    else spend.divide(BigDecimal.valueOf(orders), 4, BigDecimal.ROUND_HALF_UP)
+
+                    return OverviewDto(spend, revenue, roas, orders, avgCpa)
                 }
-                val spend = rs.getDouble("total_spend").let { BigDecimal.valueOf(it) }
-                val revenue = rs.getDouble("total_revenue").let { BigDecimal.valueOf(it) }
-                val orders = rs.getLong("total_orders")
-
-                val roas = if (spend.compareTo(BigDecimal.ZERO) == 0) BigDecimal.ZERO
-                else revenue.divide(spend, 4, BigDecimal.ROUND_HALF_UP)
-
-                val avgCpa = if (orders == 0L) BigDecimal.ZERO
-                else spend.divide(BigDecimal.valueOf(orders), 4, BigDecimal.ROUND_HALF_UP)
-
-                return OverviewDto(spend, revenue, roas, orders, avgCpa)
             }
         }
     }
@@ -81,26 +84,29 @@ class AnalyticsQueryService(
         """.trimIndent()
 
         val series = mutableListOf<TimePointDto>()
-        clickhouseConnection.prepareStatement(sql).use { ps ->
-            ps.setString(1, campaignId)
-            ps.setObject(2, from)
-            ps.setObject(3, to)
 
-            ps.executeQuery().use { rs ->
-                while (rs.next()) {
-                    val tsObj = rs.getObject("ts")
-                    val timestamp = when (tsObj) {
-                        is java.sql.Timestamp -> tsObj.toLocalDateTime()
-                        is java.time.LocalDateTime -> tsObj
-                        else -> LocalDateTime.ofEpochSecond(rs.getLong("ts") / 1000, 0, ZoneOffset.UTC)
+        dataSource.connection.use { conn ->
+            conn.prepareStatement(sql).use { ps ->
+                ps.setString(1, campaignId)
+                ps.setObject(2, from)
+                ps.setObject(3, to)
+
+                ps.executeQuery().use { rs ->
+                    while (rs.next()) {
+                        val tsObj = rs.getObject("ts")
+                        val timestamp = when (tsObj) {
+                            is java.sql.Timestamp -> tsObj.toLocalDateTime()
+                            is java.time.LocalDateTime -> tsObj
+                            else -> LocalDateTime.ofEpochSecond(rs.getLong("ts") / 1000, 0, ZoneOffset.UTC)
+                        }
+                        val impressions = rs.getLong("impressions")
+                        val clicks = rs.getLong("clicks")
+                        val spend = BigDecimal.valueOf(rs.getDouble("spend"))
+                        val orders = rs.getLong("orders")
+                        val revenue = BigDecimal.valueOf(rs.getDouble("revenue"))
+
+                        series.add(TimePointDto(timestamp, impressions, clicks, spend, orders, revenue))
                     }
-                    val impressions = rs.getLong("impressions")
-                    val clicks = rs.getLong("clicks")
-                    val spend = BigDecimal.valueOf(rs.getDouble("spend"))
-                    val orders = rs.getLong("orders")
-                    val revenue = BigDecimal.valueOf(rs.getDouble("revenue"))
-
-                    series.add(TimePointDto(timestamp, impressions, clicks, spend, orders, revenue))
                 }
             }
         }

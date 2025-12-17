@@ -60,7 +60,7 @@ class JournalEntryServiceImpl(
             val totalDebit = lines.sumOf { it.debit }
             analyticsClient.sendEvent(
                 AnalyticsEventDto(
-                    source = "accounting_service",
+                    platform = "accounting_service",
                     eventType = "journal_entry_created",
                     amount = totalDebit,
                     currency = "USD" // Defaulting to USD for now

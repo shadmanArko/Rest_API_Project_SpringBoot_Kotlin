@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import java.math.BigDecimal
 
-@FeignClient(name = "analytics-service", url = "http://localhost:8081/api/analytics")
+@FeignClient(name = "analytics-service", url = "http://localhost:8085/api/analytics")
 interface AnalyticsClient {
 
     @PostMapping("/events")
@@ -13,7 +13,8 @@ interface AnalyticsClient {
 }
 
 data class AnalyticsEventDto(
-    val source: String,
+    val platform: String,
+    val timestamp: java.time.Instant = java.time.Instant.now(),
     val campaignId: String? = null,
     val adId: String? = null,
     val eventType: String,

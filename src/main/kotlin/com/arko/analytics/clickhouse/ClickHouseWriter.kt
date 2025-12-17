@@ -9,7 +9,8 @@ import java.sql.Connection
 @Component
 @ConditionalOnProperty(name = ["app.clickhouse.enabled"], havingValue = "true", matchIfMissing = false)
 class ClickHouseWriter(
-    private val connection: Connection
+    @org.springframework.beans.factory.annotation.Qualifier("clickHouseDataSource")
+    private val dataSource: javax.sql.DataSource
 ) {
 
     fun write(key: CampaignHourKey, metrics: AggregatedMetrics) {
@@ -19,17 +20,19 @@ class ClickHouseWriter(
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         """.trimIndent()
 
-        connection.prepareStatement(sql).use { ps ->
-            ps.setObject(1, key.dateHour)
-            ps.setString(2, key.platform)
-            ps.setString(3, key.accountId)
-            ps.setString(4, key.campaignId)
-            ps.setLong(5, metrics.impressions)
-            ps.setLong(6, metrics.clicks)
-            ps.setDouble(7, metrics.spend)
-            ps.setLong(8, metrics.orders)
-            ps.setDouble(9, metrics.revenue)
-            ps.executeUpdate()
+        dataSource.connection.use { conn ->
+            conn.prepareStatement(sql).use { ps ->
+                ps.setObject(1, key.dateHour)
+                ps.setString(2, key.platform)
+                ps.setString(3, key.accountId)
+                ps.setString(4, key.campaignId)
+                ps.setLong(5, metrics.impressions)
+                ps.setLong(6, metrics.clicks)
+                ps.setDouble(7, metrics.spend)
+                ps.setLong(8, metrics.orders)
+                ps.setDouble(9, metrics.revenue)
+                ps.executeUpdate()
+            }
         }
     }
 }

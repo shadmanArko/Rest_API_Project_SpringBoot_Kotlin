@@ -31,6 +31,11 @@ class ClickHouseMigrationRunner(
         Migration(2, "agg_campaign_hourly", "db/clickhouse/V2__agg_campaign_hourly.sql"),
         Migration(3, "agg_campaign_daily", "db/clickhouse/V3__agg_campaign_daily.sql"),
         Migration(4, "mv_hourly_to_daily", "db/clickhouse/V4__mv_hourly_to_daily.sql"),
+        Migration(6, "accounting_events", "db/clickhouse/V6__accounting_events.sql"),
+        Migration(7, "kpi_daily_financials", "db/clickhouse/V7__kpi_daily_financials.sql"),
+        Migration(8, "materialized_view_daily_financials", "db/clickhouse/V8__mv_daily_financials.sql"),
+        Migration(9, "kpi_monthly_pnl", "db/clickhouse/V9__kpi_monthly_pnl.sql"),
+        Migration(10, "mv_monthly_pnl", "db/clickhouse/V10__mv_monthly_pnl.sql"),
     )
 
     // ---- CORE METHODS ----
@@ -77,6 +82,7 @@ class ClickHouseMigrationRunner(
 
         conn.createStatement().use { stmt ->
             sqlStatements.forEach { statement ->
+                println("Executing SQL: $statement")
                 stmt.execute(statement)
             }
         }

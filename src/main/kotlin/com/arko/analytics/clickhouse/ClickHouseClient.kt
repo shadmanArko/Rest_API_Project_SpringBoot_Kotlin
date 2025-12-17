@@ -19,4 +19,14 @@ class ClickHouseClientConfig(
     fun clickhouseConnection(): Connection {
         return DriverManager.getConnection(url, user, password)
     }
+
+    @Bean("clickHouseDataSource")
+    fun clickHouseDataSource(): javax.sql.DataSource {
+        val dataSource = org.springframework.jdbc.datasource.DriverManagerDataSource()
+        dataSource.setDriverClassName("com.clickhouse.jdbc.ClickHouseDriver")
+        dataSource.url = url
+        dataSource.username = user
+        dataSource.password = password
+        return dataSource
+    }
 }

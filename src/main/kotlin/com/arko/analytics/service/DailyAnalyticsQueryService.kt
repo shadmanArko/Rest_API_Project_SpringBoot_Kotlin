@@ -10,7 +10,8 @@ import java.time.LocalDate
 @Service
 @ConditionalOnProperty(name = ["app.clickhouse.enabled"], havingValue = "true", matchIfMissing = false)
 class DailyAnalyticsQueryService(
-    private val clickhouseConnection: Connection
+    @org.springframework.beans.factory.annotation.Qualifier("clickHouseDataSource")
+    private val dataSource: javax.sql.DataSource
 ) {
 
     fun campaignDailyMetrics(
@@ -37,23 +38,25 @@ class DailyAnalyticsQueryService(
 
         val result = mutableListOf<TimePointDto>()
 
-        clickhouseConnection.prepareStatement(sql).use { ps ->
-            ps.setString(1, campaignId)
-            ps.setObject(2, from)
-            ps.setObject(3, to)
+        dataSource.connection.use { conn ->
+            conn.prepareStatement(sql).use { ps ->
+                ps.setString(1, campaignId)
+                ps.setObject(2, from)
+                ps.setObject(3, to)
 
-            ps.executeQuery().use { rs ->
-                while (rs.next()) {
-                    result.add(
-                        TimePointDto(
-                            timestamp = rs.getDate("date").toLocalDate().atStartOfDay(),
-                            impressions = rs.getLong("impressions"),
-                            clicks = rs.getLong("clicks"),
-                            spend = BigDecimal.valueOf(rs.getDouble("spend")),
-                            orders = rs.getLong("orders"),
-                            revenue = BigDecimal.valueOf(rs.getDouble("revenue"))
+                ps.executeQuery().use { rs ->
+                    while (rs.next()) {
+                        result.add(
+                            TimePointDto(
+                                timestamp = rs.getDate("date").toLocalDate().atStartOfDay(),
+                                impressions = rs.getLong("impressions"),
+                                clicks = rs.getLong("clicks"),
+                                spend = BigDecimal.valueOf(rs.getDouble("spend")),
+                                orders = rs.getLong("orders"),
+                                revenue = BigDecimal.valueOf(rs.getDouble("revenue"))
+                            )
                         )
-                    )
+                    }
                 }
             }
         }
