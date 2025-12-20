@@ -1,9 +1,13 @@
 package com.arko.accounting.ledger.service
 
+import com.arko.accounting.account.domain.AccountCategory
+import com.arko.accounting.account.domain.AccountType
 import com.arko.accounting.account.repository.AccountRepository
 import com.arko.accounting.analytics.events.AccountingEvent
+import com.arko.accounting.analytics.events.CampaignEvent
 import com.arko.accounting.analytics.publisher.AnalyticsEventPublisher
 import com.arko.accounting.journal.domain.JournalEntry
+import com.arko.accounting.journal.domain.JournalLine
 import com.arko.accounting.ledger.domain.LedgerBalance
 import com.arko.accounting.ledger.domain.LedgerEntry
 import com.arko.accounting.ledger.dto.LedgerBalanceResponse
@@ -24,8 +28,7 @@ class LedgerServiceImpl(
 ) : LedgerService {
 
     /**
-     * Posts a journal entry into the ledger.
-     * This is the SINGLE source of truth for:
+     * SINGLE source of truth for:
      * - Ledger entries
      * - Ledger balances
      * - Analytics events
@@ -36,26 +39,28 @@ class LedgerServiceImpl(
         journalEntry.lines.forEach { line ->
 
             // 1️⃣ Persist ledger entry
-            val ledgerEntry = LedgerEntry(
-                journalEntryId = journalEntry.id,
-                accountId = line.accountId,
-                debit = line.debit,
-                credit = line.credit
+            ledgerEntryRepo.save(
+                LedgerEntry(
+                    journalEntryId = journalEntry.id,
+                    accountId = line.accountId,
+                    debit = line.debit,
+                    credit = line.credit
+                )
             )
-            ledgerEntryRepo.save(ledgerEntry)
 
-            // 2️⃣ Update running balance (idempotent-safe)
-            val balance = ledgerBalanceRepo.findById(line.accountId)
+            // 2️⃣ Update running balance
+            val existing = ledgerBalanceRepo.findById(line.accountId)
                 .orElse(LedgerBalance(line.accountId))
 
-            val updatedBalance = balance.copy(
-                debit = balance.debit + line.debit,
-                credit = balance.credit + line.credit
+            ledgerBalanceRepo.save(
+                existing.copy(
+                    debit = existing.debit + line.debit,
+                    credit = existing.credit + line.credit
+                )
             )
-            ledgerBalanceRepo.save(updatedBalance)
 
-            // 3️⃣ Emit analytics event
-            emitAnalyticsEvent(journalEntry, line.accountId, line.debit, line.credit)
+            // 3️⃣ Emit analytics events (line-level)
+            emitAnalyticsEvents(journalEntry, line)
         }
     }
 
@@ -72,17 +77,23 @@ class LedgerServiceImpl(
 
     // -------------------- ANALYTICS --------------------
 
-    private fun emitAnalyticsEvent(
+    private fun emitAnalyticsEvents(
         journalEntry: JournalEntry,
-        accountId: UUID,
-        debit: BigDecimal,
-        credit: BigDecimal
+        line: JournalLine
     ) {
-        val account = accountRepo.findById(accountId)
-            .orElseThrow { IllegalStateException("Account not found: $accountId") }
+        val account = accountRepo.findById(line.accountId)
+            .orElseThrow { IllegalStateException("Account not found: ${line.accountId}") }
 
-        val amount = debit.subtract(credit)
+        // ✅ Normalize amount for analytics
+        val amount = when (account.type) {
+            AccountType.EXPENSE -> line.debit
+            AccountType.REVENUE -> line.credit
+            else -> BigDecimal.ZERO
+        }
 
+        if (amount <= BigDecimal.ZERO) return
+
+        // 📊 Accounting analytics event
         analyticsPublisher.publish(
             AccountingEvent(
                 eventDate = journalEntry.date,
@@ -93,6 +104,23 @@ class LedgerServiceImpl(
                 source = "JOURNAL"
             )
         )
+
+        // 📣 Campaign analytics (OPTIONAL, line-level)
+        if (
+            account.type == AccountType.EXPENSE &&
+            account.category == AccountCategory.MARKETING &&
+            line.campaignId != null
+        ) {
+            analyticsPublisher.publishCampaignEvent(
+                CampaignEvent(
+                    eventDate = journalEntry.date,
+                    companyId = journalEntry.companyId,
+                    campaignId = line.campaignId,
+                    eventType = "COST",
+                    amount = amount
+                )
+            )
+        }
     }
 
     // -------------------- MAPPERS --------------------
@@ -106,13 +134,11 @@ class LedgerServiceImpl(
             credit = credit
         )
 
-    private fun LedgerBalance.toBalanceResponse(): LedgerBalanceResponse {
-        val net = debit.subtract(credit)
-        return LedgerBalanceResponse(
+    private fun LedgerBalance.toBalanceResponse(): LedgerBalanceResponse =
+        LedgerBalanceResponse(
             accountId = accountId,
             debit = debit,
             credit = credit,
-            netBalance = net
+            netBalance = debit.subtract(credit)
         )
-    }
 }

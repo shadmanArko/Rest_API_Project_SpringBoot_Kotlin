@@ -21,12 +21,10 @@ class ClickHouseClientConfig(
     }
 
     @Bean("clickHouseDataSource")
-    fun clickHouseDataSource(): javax.sql.DataSource {
-        val dataSource = org.springframework.jdbc.datasource.DriverManagerDataSource()
-        dataSource.setDriverClassName("com.clickhouse.jdbc.ClickHouseDriver")
-        dataSource.url = url
-        dataSource.username = user
-        dataSource.password = password
-        return dataSource
+    fun clickHouseDataSource(): com.clickhouse.jdbc.ClickHouseDataSource {
+        val props = java.util.Properties()
+        props.setProperty("user", user)
+        props.setProperty("password", password)
+        return com.clickhouse.jdbc.ClickHouseDataSource(url, props)
     }
 }

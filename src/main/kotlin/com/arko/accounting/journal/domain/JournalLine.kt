@@ -24,5 +24,9 @@ class JournalLine(
     @Column(nullable = false)
     val credit: BigDecimal = BigDecimal.ZERO,
 
-    val description: String? = null
+    val description: String? = null,
+
+    // ✅ Campaign attribution (OPTIONAL)
+    @Column(nullable = true)
+    val campaignId: UUID? = null
 )

@@ -36,6 +36,12 @@ class ClickHouseMigrationRunner(
         Migration(8, "materialized_view_daily_financials", "db/clickhouse/V8__mv_daily_financials.sql"),
         Migration(9, "kpi_monthly_pnl", "db/clickhouse/V9__kpi_monthly_pnl.sql"),
         Migration(10, "mv_monthly_pnl", "db/clickhouse/V10__mv_monthly_pnl.sql"),
+        Migration(11, "campaign_events", "db/clickhouse/V11__campaign_events.sql"),
+        Migration(12, "kpi_campaign_daily", "db/clickhouse/V12__kpi_campaign_daily.sql"),
+        Migration(13, "mv_campaign_daily", "db/clickhouse/V13__mv_campaign_daily.sql"),
+        Migration(14, "kpi_campaign_monthly_roi", "db/clickhouse/V14__kpi_campaign_monthly_roi.sql"),
+        Migration(15, "mv_campaign_monthly_roi", "db/clickhouse/V15__mv_campaign_monthly_roi.sql"),
+        Migration(16, "add_account_category", "db/clickhouse/V16__add_account_category.sql"),
     )
 
     // ---- CORE METHODS ----

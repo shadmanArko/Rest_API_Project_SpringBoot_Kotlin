@@ -21,6 +21,10 @@ data class Account(
     @Column(nullable = false)
     val type: AccountType = AccountType.ASSET,
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    val category: AccountCategory = AccountCategory.OTHER,
+
     @Column(nullable = false)
     val isParent: Boolean = false,
 

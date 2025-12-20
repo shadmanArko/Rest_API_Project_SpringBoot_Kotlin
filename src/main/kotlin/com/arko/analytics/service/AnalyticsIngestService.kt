@@ -1,28 +1,33 @@
 package com.arko.analytics.service
 
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.arko.analytics.dto.EventDto
 import com.arko.analytics.domain.RawEvent
 import com.arko.analytics.kafka.EventProducer
 import com.arko.analytics.repository.RawEventRepository
+import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class AnalyticsService(
+class AnalyticsIngestService(
     private val rawRepo: RawEventRepository,
     private val producer: EventProducer
 ) {
-    private val om = jacksonObjectMapper().apply {
+
+    private val objectMapper = jacksonObjectMapper().apply {
         registerModule(JavaTimeModule())
         disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
     }
 
+    /**
+     * Ingests raw analytics events.
+     * This is WRITE-ONLY, append-only, and idempotent.
+     */
     @Transactional
     fun ingest(event: EventDto) {
-        // Save raw
+
         val raw = RawEvent(
             id = event.eventId,
             platform = event.platform,
@@ -33,12 +38,16 @@ class AnalyticsService(
             eventTime = event.timestamp,
             amount = event.amount,
             currency = event.currency,
-            payload = event.payload?.let { om.writeValueAsString(it) }
+            payload = event.payload?.let { objectMapper.writeValueAsString(it) }
         )
+
+        // 1️⃣ Persist raw (source of truth)
         rawRepo.save(raw)
 
-        // Publish normalized JSON to Kafka for downstream processing
-        val message = om.writeValueAsString(event)
-        producer.publish(event.eventId.toString(), message)
+        // 2️⃣ Publish normalized event for downstream consumers
+        producer.publish(
+            key = event.eventId.toString(),
+            value = objectMapper.writeValueAsString(event)
+        )
     }
 }

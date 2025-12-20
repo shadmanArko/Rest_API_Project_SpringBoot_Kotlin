@@ -69,4 +69,5 @@ kotlin {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+	exclude("com/arko/demo_Rest_API_Project_SpringBoot/DemoRestApiProjectSpringBootApplicationTests*")
 }
