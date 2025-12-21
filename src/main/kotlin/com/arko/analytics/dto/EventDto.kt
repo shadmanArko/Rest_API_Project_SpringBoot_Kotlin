@@ -8,13 +8,13 @@ import java.util.UUID
 
 data class EventDto(
     val eventId: UUID = UUID.randomUUID(),
-    @field:NotBlank val platform: String,       // "meta", "google", "stripe", "web"
-    val accountId: String?,
-    val campaignId: String?,
-    val adId: String?,
+    val platform: String = "web",       // "meta", "google", "stripe", "web"
+    val accountId: String? = null,
+    val campaignId: String? = null,
+    val adId: String? = null,
     @field:NotBlank val eventType: String,     // "impression","click","spend","order","refund"
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
-    @field:NotNull val timestamp: Instant,
+    val timestamp: Instant = Instant.now(),
     val amount: Double? = null,
     val currency: String? = null,
     val payload: Map<String, Any>? = null

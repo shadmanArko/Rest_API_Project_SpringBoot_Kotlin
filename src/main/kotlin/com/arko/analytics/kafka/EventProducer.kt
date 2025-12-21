@@ -3,6 +3,7 @@ package com.arko.analytics.kafka
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Component
+import org.springframework.scheduling.annotation.Async
 
 @Component
 class EventProducer(
@@ -12,6 +13,7 @@ class EventProducer(
 ) {
     private val logger = org.slf4j.LoggerFactory.getLogger(EventProducer::class.java)
 
+    @Async
     fun publish(key: String, value: String) {
         if (!enabled) return
 

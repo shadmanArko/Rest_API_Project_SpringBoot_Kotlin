@@ -15,7 +15,7 @@ class GlobalExceptionHandler {
         ex.printStackTrace() // Print stack trace to console
         val errorDetails = ErrorDetails(
             timestamp = LocalDateTime.now(),
-            message = ex.message ?: "An unexpected error occurred",
+            message = "[${ex.javaClass.simpleName}] ${ex.message ?: "An unexpected error occurred"}",
             details = request.getDescription(false)
         )
         return ResponseEntity(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR)

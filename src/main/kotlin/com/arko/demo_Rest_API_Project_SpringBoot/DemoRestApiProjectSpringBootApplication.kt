@@ -12,6 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 @ComponentScan(basePackages = ["com.arko"])
 @EntityScan(basePackages = ["com.arko"])
 @EnableJpaRepositories(basePackages = ["com.arko"])
+@org.springframework.scheduling.annotation.EnableAsync
 class DemoRestApiProjectSpringBootApplication
 
 fun main(args: Array<String>) {
