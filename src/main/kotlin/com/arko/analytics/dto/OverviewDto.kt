@@ -7,6 +7,7 @@ data class OverviewDto(
     val totalRevenue: BigDecimal,
     val roas: BigDecimal,       // revenue / spend (0 if spend==0)
     val orders: Long,
+    val impressions: Long,
     val avgCpa: BigDecimal      // spend / orders (0 if orders==0)
 ) {
     companion object {
@@ -15,6 +16,7 @@ data class OverviewDto(
             totalRevenue = BigDecimal.ZERO,
             roas = BigDecimal.ZERO,
             orders = 0L,
+            impressions = 0L,
             avgCpa = BigDecimal.ZERO
         )
     }

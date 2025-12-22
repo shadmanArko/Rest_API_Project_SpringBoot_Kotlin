@@ -15,7 +15,7 @@ import java.time.LocalDateTime
 import java.time.ZoneOffset
 import javax.sql.DataSource
 
-@Service
+@Service("clickHouseQueryService")
 @ConditionalOnProperty(
     name = ["app.clickhouse.enabled"],
     havingValue = "true",
@@ -38,7 +38,8 @@ class ClickHouseAnalyticsQueryService(
             SELECT
               sum(spend) as total_spend,
               sum(revenue) as total_revenue,
-              sum(orders) as total_orders
+              sum(orders) as total_orders,
+              sum(impressions) as total_impressions
             FROM analytics.agg_campaign_hourly
             WHERE date_hour >= ? AND date_hour < ?
         """.trimIndent())
@@ -63,6 +64,7 @@ class ClickHouseAnalyticsQueryService(
                     val spend = rs.getBigDecimal("total_spend") ?: BigDecimal.ZERO
                     val revenue = rs.getBigDecimal("total_revenue") ?: BigDecimal.ZERO
                     val orders = rs.getLong("total_orders")
+                    val impressions = rs.getLong("total_impressions")
 
                     val roas =
                         if (spend.compareTo(BigDecimal.ZERO) == 0) BigDecimal.ZERO
@@ -72,7 +74,7 @@ class ClickHouseAnalyticsQueryService(
                         if (orders == 0L) BigDecimal.ZERO
                         else spend.divide(BigDecimal.valueOf(orders), 4, BigDecimal.ROUND_HALF_UP)
 
-                    return OverviewDto(spend, revenue, roas, orders, avgCpa)
+                    return OverviewDto(spend, revenue, roas, orders, impressions, avgCpa)
                 }
             }
         }

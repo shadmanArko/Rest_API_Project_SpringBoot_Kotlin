@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.298s</div>
+<div class="counter">0.320s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,22 +79,22 @@
 </thead>
 <tr>
 <td class="success">create should return 200 when request is valid()</td>
-<td class="success">0.173s</td>
+<td class="success">0.183s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">create should return 400 when date is null()</td>
-<td class="success">0.004s</td>
+<td class="success">0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">create should return 400 when header is missing()</td>
-<td class="success">0.004s</td>
+<td class="success">0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">create should return 400 when lines are empty()</td>
-<td class="success">0.117s</td>
+<td class="success">0.127s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -111,16 +111,16 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::               (v3.2.11)
 
-2025-12-22T02:06:16.790+01:00  INFO 74923 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] c.a.a.j.c.JournalEntryControllerTest     : Starting JournalEntryControllerTest using Java 17.0.16 with PID 74923 (started by shadman.arko in /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot)
-2025-12-22T02:06:16.792+01:00  INFO 74923 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] c.a.a.j.c.JournalEntryControllerTest     : The following 1 profile is active: &quot;test&quot;
-2025-12-22T02:06:17.938+01:00  INFO 74923 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@39a865c1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@141dfcf9, org.springframework.security.web.context.SecurityContextHolderFilter@2833c093, org.springframework.security.web.header.HeaderWriterFilter@2b9ecd05, org.springframework.security.web.csrf.CsrfFilter@54f373d4, org.springframework.security.web.authentication.logout.LogoutFilter@46de118b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@186f7434, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@459e120b, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@a7bbdbc, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6be8ce1b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4946485c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c682e26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@63eea8c4, org.springframework.security.web.access.ExceptionTranslationFilter@43f99817, org.springframework.security.web.access.intercept.AuthorizationFilter@6c75e3bc]
-2025-12-22T02:06:17.957+01:00  INFO 74923 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-12-22T02:06:17.957+01:00  INFO 74923 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-12-22T02:06:17.958+01:00  INFO 74923 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2025-12-22T02:06:17.970+01:00  INFO 74923 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] c.a.a.j.c.JournalEntryControllerTest     : Started JournalEntryControllerTest in 1.399 seconds (process running for 1.889)
-2025-12-22T02:06:18.152+01:00  WARN 74923 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'X-Company-ID' for method parameter type UUID is not present]
-2025-12-22T02:06:18.270+01:00  WARN 74923 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity&lt;com.arko.accounting.journal.dto.JournalEntryDto&gt; com.arko.accounting.journal.controller.JournalEntryController.create(com.arko.accounting.journal.dto.CreateJournalEntryRequest,java.util.UUID): [Field error in object 'createJournalEntryRequest' on field 'lines': rejected value [[]]; codes [NotEmpty.createJournalEntryRequest.lines,NotEmpty.lines,NotEmpty.java.util.List,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createJournalEntryRequest.lines,lines]; arguments []; default message [lines]]; default message [must not be empty]] ]
-2025-12-22T02:06:18.275+01:00  WARN 74923 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Instantiation of [simple type, class com.arko.accounting.journal.dto.CreateJournalEntryRequest] value failed for JSON property date due to missing (therefore NULL) value for creator parameter date which is a non-nullable type]
+2025-12-22T02:22:55.112+01:00  INFO 75978 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] c.a.a.j.c.JournalEntryControllerTest     : Starting JournalEntryControllerTest using Java 17.0.16 with PID 75978 (started by shadman.arko in /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot)
+2025-12-22T02:22:55.113+01:00  INFO 75978 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] c.a.a.j.c.JournalEntryControllerTest     : The following 1 profile is active: &quot;test&quot;
+2025-12-22T02:22:56.198+01:00  INFO 75978 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@39a865c1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@141dfcf9, org.springframework.security.web.context.SecurityContextHolderFilter@2833c093, org.springframework.security.web.header.HeaderWriterFilter@2b9ecd05, org.springframework.security.web.csrf.CsrfFilter@54f373d4, org.springframework.security.web.authentication.logout.LogoutFilter@46de118b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@186f7434, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@459e120b, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@a7bbdbc, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6be8ce1b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4946485c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c682e26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@63eea8c4, org.springframework.security.web.access.ExceptionTranslationFilter@43f99817, org.springframework.security.web.access.intercept.AuthorizationFilter@6c75e3bc]
+2025-12-22T02:22:56.220+01:00  INFO 75978 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-12-22T02:22:56.220+01:00  INFO 75978 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-12-22T02:22:56.221+01:00  INFO 75978 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2025-12-22T02:22:56.233+01:00  INFO 75978 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] c.a.a.j.c.JournalEntryControllerTest     : Started JournalEntryControllerTest in 1.284 seconds (process running for 1.784)
+2025-12-22T02:22:56.426+01:00  WARN 75978 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'X-Company-ID' for method parameter type UUID is not present]
+2025-12-22T02:22:56.554+01:00  WARN 75978 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity&lt;com.arko.accounting.journal.dto.JournalEntryDto&gt; com.arko.accounting.journal.controller.JournalEntryController.create(com.arko.accounting.journal.dto.CreateJournalEntryRequest,java.util.UUID): [Field error in object 'createJournalEntryRequest' on field 'lines': rejected value [[]]; codes [NotEmpty.createJournalEntryRequest.lines,NotEmpty.lines,NotEmpty.java.util.List,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createJournalEntryRequest.lines,lines]; arguments []; default message [lines]]; default message [must not be empty]] ]
+2025-12-22T02:22:56.559+01:00  WARN 75978 --- [demo_Rest_API_Project_SpringBoot_Test] [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Instantiation of [simple type, class com.arko.accounting.journal.dto.CreateJournalEntryRequest] value failed for JSON property date due to missing (therefore NULL) value for creator parameter date which is a non-nullable type]
 </pre>
 </span>
 </div>
@@ -132,7 +132,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.14.3</a> at Dec 22, 2025, 2:06:18 AM</p>
+<a href="https://www.gradle.org">Gradle 8.14.3</a> at Dec 22, 2025, 2:22:56 AM</p>
 </div>
 </div>
 </body>

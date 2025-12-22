@@ -7,4 +7,6 @@ import java.time.Instant
 
 interface RawEventRepository : JpaRepository<RawEvent, UUID> {
     fun findAllByCampaignIdAndEventTimeBetween(campaignId: String, from: Instant, to: Instant): List<RawEvent>
+    fun findAllByEventTimeBetween(from: Instant, to: Instant): List<RawEvent>
+    fun findAllByPlatformAndEventTimeBetween(platform: String, from: Instant, to: Instant): List<RawEvent>
 }
