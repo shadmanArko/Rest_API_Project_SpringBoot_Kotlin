@@ -4,6 +4,7 @@ import com.arko.accounting.account.domain.AccountType
 import com.arko.accounting.account.repository.AccountRepository
 import com.arko.accounting.ledger.repository.LedgerEntryRepository
 import com.arko.accounting.reports.dto.*
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
 import java.util.UUID
@@ -14,7 +15,10 @@ class FinancialReportServiceImpl(
     private val ledgerRepo: LedgerEntryRepository
 ) : FinancialReportService {
 
+    private val logger = LoggerFactory.getLogger(FinancialReportServiceImpl::class.java)
+
     override fun generateBalanceSheet(companyId: UUID): BalanceSheetDto {
+        try {
 
         // Note: Account entity currently doesn't have companyId, so we fetch all accounts
         val accounts = accountRepo.findAll()
@@ -73,9 +77,14 @@ class FinancialReportServiceImpl(
             equity = equity,
             isBalanced = isBalanced
         )
+        } catch (e: Exception) {
+            logger.error("Error generating balance sheet for company $companyId", e)
+            throw e
+        }
     }
 
     override fun generateIncomeStatement(companyId: UUID): IncomeStatementDto {
+        try {
 
         val accounts = accountRepo.findAll()
 
@@ -112,6 +121,10 @@ class FinancialReportServiceImpl(
             expenses = expenses,
             netIncome = netIncome
         )
+        } catch (e: Exception) {
+            logger.error("Error generating income statement for company $companyId", e)
+            throw e
+        }
     }
 
     override fun generateCashFlow(companyId: UUID): CashFlowStatementDto {

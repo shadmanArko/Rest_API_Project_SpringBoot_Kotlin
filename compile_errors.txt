@@ -1,0 +1,215 @@
+Initialized native services in: /Users/shadman.arko/.gradle/native
+Initialized jansi services in: /Users/shadman.arko/.gradle/native
+The client will now receive all logging from the daemon (pid: 73333). The daemon log file: /Users/shadman.arko/.gradle/daemon/8.14.3/daemon-73333.out.log
+Starting 4th build in daemon [uptime: 40.77 secs, performance: 99%, GC rate: 0.00/s, heap usage: 0% of 2 GiB, non-heap usage: 14% of 512 MiB]
+Using 11 worker leases.
+Now considering [/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Settings evaluated using settings file '/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/settings.gradle.kts'.
+Using local directory build cache for the root build (location = /Users/shadman.arko/.gradle/caches/build-cache-1, remove unused entries = after 7 days).
+Projects loaded. Root project using build file '/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/build.gradle.kts'.
+Included projects: [root project 'demo_Rest_API_Project_SpringBoot', project ':analytics-service']
+Starting process 'command '/usr/libexec/java_home''. Working directory: /Users/shadman.arko/.gradle/daemon/8.14.3 Command: /usr/libexec/java_home -V
+Successfully started process 'command '/usr/libexec/java_home''
+
+> Configure project :
+Evaluating root project 'demo_Rest_API_Project_SpringBoot' using build file '/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '1.9.25']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.spring', version: '1.9.25']
+Resolved plugin [id: 'org.springframework.boot', version: '3.2.11']
+Resolved plugin [id: 'io.spring.dependency-management', version: '1.1.7']
+Using Kotlin Gradle Plugin gradle82 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+Applying dependency management to configuration 'annotationProcessor' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'api' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'apiDependenciesMetadata' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'apiElements' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'archives' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'bootArchives' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'compileClasspath' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'compileOnly' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'compileOnlyDependenciesMetadata' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'default' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'developmentOnly' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'implementation' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'implementationDependenciesMetadata' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'intransitiveDependenciesMetadata' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'kotlinBuildToolsApiClasspath' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'kotlinCompilerClasspath' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'kotlinCompilerPluginClasspath' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'kotlinCompilerPluginClasspathMain' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'kotlinCompilerPluginClasspathTest' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'kotlinKlibCommonizerClasspath' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'kotlinNativeCompilerPluginClasspath' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'kotlinScriptDef' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'kotlinScriptDefExtensions' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'mainSourceElements' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'productionRuntimeClasspath' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'runtimeClasspath' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'runtimeElements' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'runtimeOnly' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testAndDevelopmentOnly' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testAnnotationProcessor' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testApi' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testApiDependenciesMetadata' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testCompileClasspath' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testCompileOnly' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testCompileOnlyDependenciesMetadata' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testImplementation' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testImplementationDependenciesMetadata' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testIntransitiveDependenciesMetadata' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testKotlinScriptDef' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testKotlinScriptDefExtensions' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testResultsElementsForTest' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testRuntimeClasspath' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'testRuntimeOnly' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'apiElements-published' in project 'demo_Rest_API_Project_SpringBoot'
+Applying dependency management to configuration 'runtimeElements-published' in project 'demo_Rest_API_Project_SpringBoot'
+
+> Configure project :analytics-service
+Evaluating project ':analytics-service' using build file '/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/analytics-service/build.gradle.kts'.
+Resolved plugin [id: 'org.springframework.boot']
+Resolved plugin [id: 'io.spring.dependency-management']
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.spring']
+Applying dependency management to configuration 'bootArchives' in project 'analytics-service'
+Applying dependency management to configuration 'kotlinCompilerClasspath' in project 'analytics-service'
+Applying dependency management to configuration 'kotlinBuildToolsApiClasspath' in project 'analytics-service'
+Applying dependency management to configuration 'kotlinCompilerPluginClasspath' in project 'analytics-service'
+Using Kotlin Gradle Plugin gradle82 variant
+Applying dependency management to configuration 'kotlinNativeCompilerPluginClasspath' in project 'analytics-service'
+Applying dependency management to configuration 'kotlinKlibCommonizerClasspath' in project 'analytics-service'
+Applying dependency management to configuration 'archives' in project 'analytics-service'
+Applying dependency management to configuration 'default' in project 'analytics-service'
+Applying dependency management to configuration 'implementation' in project 'analytics-service'
+Applying dependency management to configuration 'compileOnly' in project 'analytics-service'
+Applying dependency management to configuration 'compileClasspath' in project 'analytics-service'
+Applying dependency management to configuration 'annotationProcessor' in project 'analytics-service'
+Applying dependency management to configuration 'runtimeOnly' in project 'analytics-service'
+Applying dependency management to configuration 'runtimeClasspath' in project 'analytics-service'
+Applying dependency management to configuration 'apiElements' in project 'analytics-service'
+Applying dependency management to configuration 'runtimeElements' in project 'analytics-service'
+Applying dependency management to configuration 'mainSourceElements' in project 'analytics-service'
+Applying dependency management to configuration 'testImplementation' in project 'analytics-service'
+Applying dependency management to configuration 'testCompileOnly' in project 'analytics-service'
+Applying dependency management to configuration 'testCompileClasspath' in project 'analytics-service'
+Applying dependency management to configuration 'testAnnotationProcessor' in project 'analytics-service'
+Applying dependency management to configuration 'testRuntimeOnly' in project 'analytics-service'
+Applying dependency management to configuration 'testRuntimeClasspath' in project 'analytics-service'
+Applying dependency management to configuration 'testResultsElementsForTest' in project 'analytics-service'
+Applying dependency management to configuration 'productionRuntimeClasspath' in project 'analytics-service'
+Applying dependency management to configuration 'developmentOnly' in project 'analytics-service'
+Applying dependency management to configuration 'testAndDevelopmentOnly' in project 'analytics-service'
+Applying dependency management to configuration 'api' in project 'analytics-service'
+Applying dependency management to configuration 'apiDependenciesMetadata' in project 'analytics-service'
+Applying dependency management to configuration 'implementationDependenciesMetadata' in project 'analytics-service'
+Applying dependency management to configuration 'compileOnlyDependenciesMetadata' in project 'analytics-service'
+Applying dependency management to configuration 'intransitiveDependenciesMetadata' in project 'analytics-service'
+Applying dependency management to configuration 'kotlinCompilerPluginClasspathMain' in project 'analytics-service'
+Applying dependency management to configuration 'testApi' in project 'analytics-service'
+Applying dependency management to configuration 'testApiDependenciesMetadata' in project 'analytics-service'
+Applying dependency management to configuration 'testImplementationDependenciesMetadata' in project 'analytics-service'
+Applying dependency management to configuration 'testCompileOnlyDependenciesMetadata' in project 'analytics-service'
+Applying dependency management to configuration 'testIntransitiveDependenciesMetadata' in project 'analytics-service'
+Applying dependency management to configuration 'kotlinCompilerPluginClasspathTest' in project 'analytics-service'
+Applying dependency management to configuration 'kotlinScriptDef' in project 'analytics-service'
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+Applying dependency management to configuration 'kotlinScriptDefExtensions' in project 'analytics-service'
+Applying dependency management to configuration 'testKotlinScriptDef' in project 'analytics-service'
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+Applying dependency management to configuration 'testKotlinScriptDefExtensions' in project 'analytics-service'
+Applying dependency management to configuration 'apiElements-published' in project 'analytics-service'
+Applying dependency management to configuration 'runtimeElements-published' in project 'analytics-service'
+All projects evaluated.
+Task name matched 'compileKotlin'
+Selected primary task 'compileKotlin' from project :
+Resolving global dependency management for project 'demo_Rest_API_Project_SpringBoot'
+Excluding []
+Excluding []
+Excluding []
+Excluding []
+Resolving global dependency management for project 'analytics-service'
+Excluding []
+Excluding []
+Excluding []
+Excluding []
+Tasks to be executed: [task ':checkKotlinGradlePluginConfigurationErrors', task ':compileKotlin', task ':analytics-service:checkKotlinGradlePluginConfigurationErrors', task ':analytics-service:compileKotlin']
+Tasks that were excluded: []
+Resolve mutations for :analytics-service:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 3,5,main]) started.
+Resolve mutations for :checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker,5,main]) started.
+:analytics-service:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 3,5,main]) started.
+:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker,5,main]) started.
+
+> Task :checkKotlinGradlePluginConfigurationErrors
+Caching disabled for task ':checkKotlinGradlePluginConfigurationErrors' because:
+  This task renders reported diagnostics; caching this task will hide diagnostics and obscure issues in the build
+Task ':checkKotlinGradlePluginConfigurationErrors' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+
+> Task :analytics-service:checkKotlinGradlePluginConfigurationErrors
+Caching disabled for task ':analytics-service:checkKotlinGradlePluginConfigurationErrors' because:
+  This task renders reported diagnostics; caching this task will hide diagnostics and obscure issues in the build
+Task ':analytics-service:checkKotlinGradlePluginConfigurationErrors' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+Resolve mutations for :compileKotlin (Thread[Execution worker,5,main]) started.
+Resolve mutations for :analytics-service:compileKotlin (Thread[Execution worker Thread 3,5,main]) started.
+:compileKotlin (Thread[Execution worker,5,main]) started.
+:analytics-service:compileKotlin (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :analytics-service:compileKotlin UP-TO-DATE
+Excluding []
+Excluding []
+Build cache key for task ':analytics-service:compileKotlin' is 8dad5fe39ab5055e2b65c41f7f8d0032
+Skipping task ':analytics-service:compileKotlin' as it is up-to-date.
+
+> Task :compileKotlin FAILED
+Excluding []
+Excluding []
+Build cache key for task ':compileKotlin' is 964ff13a03575a382401157a80ee5840
+Task ':compileKotlin' is not up-to-date because:
+  Input property 'sources' file /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/account/domain/AccountCategory.kt has changed.
+  Input property 'sources' file /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/domain/RawEvent.kt has changed.
+  Input property 'sources' file /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/EventDto.kt has changed.
+file or directory '/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/java', not found
+file or directory '/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/java', not found
+file or directory '/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/java', not found
+file or directory '/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/java', not found
+Kotlin source files: /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/dto/Mappers.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/dto/CreateJournalEntryRequest.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/dto/JournalEntryDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/dto/JournalLineDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/repository/JournalLineRepository.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/repository/JournalEntryRepository.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/controller/JournalEntryController.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/service/JournalEntryService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/service/JournalEntryServiceImpl.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/domain/JournalEntryStatus.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/domain/JournalEntry.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/domain/JournalLine.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/exception/InvalidJournalStateException.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/journal/exception/UnbalancedJournalException.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/dto/TrialBalanceRowDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/dto/TrialBalanceDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/dto/LedgerEntryResponse.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/dto/LedgerBalanceResponse.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/repository/LedgerBalanceRepository.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/repository/LedgerEntryRepository.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/controller/LedgerController.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/controller/TrialBalanceController.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/service/LedgerServiceImpl.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/service/TrialBalanceService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/service/TrialBalanceServiceImpl.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/service/LedgerService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/domain/LedgerBalance.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/ledger/domain/LedgerEntry.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/exceptions/ValidationException.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/exceptions/NotFoundException.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/account/dto/AccountUpdateRequest.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/account/dto/AccountResponse.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/account/dto/AccountCreateRequest.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/account/repository/AccountRepository.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/account/config/AccountSeeder.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/account/controller/AccountController.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/account/service/AccountService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/account/service/AccountServiceImpl.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/account/domain/AccountType.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/account/domain/AccountCategory.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/account/domain/Account.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/client/AnalyticsClient.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/analytics/publisher/ClickHouseAnalyticsEventPublisher.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/analytics/publisher/AnalyticsEventPublisher.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/analytics/publisher/NoOpAnalyticsEventPublisher.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/analytics/events/CampaignEvent.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/analytics/events/AccountingEvent.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/reports/dto/IncomeStatementDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/reports/dto/BalanceSheetSectionDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/reports/dto/BalanceSheetDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/reports/dto/CashFlowStatementDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/reports/dto/IncomeStatementSectionDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/reports/dto/BalanceSheetItemDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/reports/dto/CashFlowSectionDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/reports/dto/IncomeStatementItemDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/reports/controller/FinancialReportController.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/reports/service/FinancialReportServiceImpl.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/reports/service/FinancialReportService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/repository/CommentRepository.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/repository/NoteRepository.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/repository/UserRepository.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/repository/RefreshTokenRepository.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/security/AuthController.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/security/AuthService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/security/HashEncoder.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/security/JwtAuthFilter.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/security/SecurityConfig.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/security/JwtService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/model/Note.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/model/User.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/model/RefreshToken.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DataBase/model/CommentEntity.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/config/DataSourceConfig.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/Dtos/CommentDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/DemoRestApiProjectSpringBootApplication.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/controllers/NoteController.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/controllers/CommentController.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/exception/GlobalExceptionHandler.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/Services/CommentMapper.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/demo_Rest_API_Project_SpringBoot/Services/CommentService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/CampaignKpiResponse.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/TimePointDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/EventDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/CampaignMetricsDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/CampaignOverviewDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/dashboard/FinancialTrendDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/dashboard/CampaignSummaryDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/dashboard/FinancialSummaryDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/dashboard/DashboardResponseDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/dashboard/AmountByDateDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/OverviewDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/MonthlyPnLDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/FinancialKpiResponse.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/DailyFinancialDto.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/aggregation/CampaignHourKey.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/aggregation/AggregatedMetrics.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/clickhouse/ClickHouseClient.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/clickhouse/ClickHouseWriter.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/repository/ClickHouseAnalyticsRepository.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/repository/RawEventRepository.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/assembler/DashboardAssembler.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/controller/DailyAnalyticsController.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/controller/AnalyticsController.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/controller/DashboardController.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/kafka/KafkaConfig.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/kafka/AnalyticsConsumer.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/kafka/EventProducer.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/service/impl/ClickHouseAnalyticsQueryService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/service/CampaignAnalyticsIngestService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/service/AnalyticsQueryService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/service/DailyAnalyticsQueryService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/service/AccountingAnalyticsIngestService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/service/AnalyticsIngestService.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/worker/AggregatorStub.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/domain/RawEvent.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/exception/AnalyticsDisabledException.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/migration/ClickHouseMigrationRunner.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/migration/ClickHouseMigrations.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/migration/ClickHouseMigration.kt
+Java source files: 
+Script source files: 
+Script file extensions: 
+Using Kotlin/JVM incremental compilation
+[KOTLIN] Kotlin compilation 'jdkHome' argument: /Users/shadman.arko/Library/Java/JavaVirtualMachines/ms-17.0.16/Contents/Home
+i: found daemon on port 17774 (227314 ms old), trying to connect
+i: connected to the daemon
+Options for KOTLIN DAEMON: IncrementalCompilationOptions(super=CompilationOptions(compilerMode=INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0, 3], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=[]), areFileChangesKnown=true, modifiedFiles=[/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/accounting/account/domain/AccountCategory.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/domain/RawEvent.kt, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/dto/EventDto.kt], deletedFiles=[], classpathChanges=NoChanges, workingDir=/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/build/kotlin/compileKotlin/cacheable, multiModuleICSettings=MultiModuleICSettings(buildHistoryFile=/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/build/kotlin/compileKotlin/local-state/build-history.bin, useModuleDetection=false), usePreciseJavaTracking=true, outputFiles=[/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/build/classes/kotlin/main, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/build/kotlin/compileKotlin/cacheable, /Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot/build/kotlin/compileKotlin/local-state])
+e: file:///Users/shadman.arko/Documents/Work%20(Do%20not%20touch)/demo_Rest_API_Project_SpringBoot/src/main/kotlin/com/arko/analytics/kafka/AnalyticsConsumer.kt:37:24 Type mismatch: inferred type is String? but String was expected
+Restoring task outputs to pre-compilation state
+
+[Incubating] Problems report is available at: file:///Users/shadman.arko/Documents/Work%20(Do%20not%20touch)/demo_Rest_API_Project_SpringBoot/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 2s
+4 actionable tasks: 3 executed, 1 up-to-date
+Watched directory hierarchies: [/Users/shadman.arko/Documents/Work (Do not touch)/demo_Rest_API_Project_SpringBoot]

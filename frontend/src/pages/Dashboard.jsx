@@ -29,11 +29,11 @@ const Dashboard = () => {
             ]);
 
             setMetrics({
-                assets: balanceSheet.assets.total,
-                liabilities: balanceSheet.liabilities.total,
-                equity: balanceSheet.equity.total,
-                revenue: incomeStatement.revenue.total,
-                expenses: incomeStatement.expenses.total
+                assets: balanceSheet?.assets?.total || 0,
+                liabilities: balanceSheet?.liabilities?.total || 0,
+                equity: balanceSheet?.equity?.total || 0,
+                revenue: incomeStatement?.revenue?.total || 0,
+                expenses: incomeStatement?.expenses?.total || 0
             });
         } catch (error) {
             console.error('Failed to fetch dashboard metrics', error);

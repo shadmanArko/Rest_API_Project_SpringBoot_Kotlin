@@ -25,6 +25,7 @@ enum class AccountCategory {
     // -------------------- ASSETS --------------------
     CASH,
     BANK,
+    ACCOUNTS_RECEIVABLE,
     INVENTORY,
     EQUIPMENT,
     PREPAID_EXPENSE,
@@ -32,10 +33,12 @@ enum class AccountCategory {
     // -------------------- LIABILITIES --------------------
     PAYABLE,
     TAX_PAYABLE,
+    ACCRUED_EXPENSE,
     LOAN,
 
     // -------------------- EQUITY --------------------
     OWNER_CAPITAL,
+    OWNER_DRAWINGS,
     RETAINED_EARNINGS,
 
 

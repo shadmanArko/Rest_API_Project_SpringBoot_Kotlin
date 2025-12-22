@@ -8,7 +8,7 @@ import java.util.UUID
 
 data class EventDto(
     val eventId: UUID = UUID.randomUUID(),
-    @field:NotBlank val platform: String,       // "meta", "google", "stripe", "web"
+    val platform: String? = null,       // "meta", "google", "stripe", "web"
     val accountId: String?,
     val campaignId: String?,
     val adId: String?,

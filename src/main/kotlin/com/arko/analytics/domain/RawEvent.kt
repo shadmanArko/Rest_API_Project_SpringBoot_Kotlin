@@ -15,7 +15,7 @@ data class RawEvent(
     @Id
     val id: UUID = UUID.randomUUID(),
 
-    val platform: String = "",
+    val platform: String? = null,
     val accountId: String? = null,
     val campaignId: String? = null,
     val adId: String? = null,

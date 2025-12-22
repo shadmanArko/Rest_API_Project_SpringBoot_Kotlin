@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.arko.accounting.reports.service.FinancialReportServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-12-21T20:26:43.180Z" hostname="Mac.fritz.box" time="0.082">
+<testsuite name="com.arko.accounting.reports.service.FinancialReportServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-12-22T01:06:18.278Z" hostname="Mac.fritz.box" time="0.081">
   <properties/>
-  <testcase name="generateBalanceSheet should calculate correctly()" classname="com.arko.accounting.reports.service.FinancialReportServiceTest" time="0.081"/>
+  <testcase name="generateBalanceSheet should calculate correctly()" classname="com.arko.accounting.reports.service.FinancialReportServiceTest" time="0.08"/>
   <testcase name="generateBalanceSheet should not crash with empty data()" classname="com.arko.accounting.reports.service.FinancialReportServiceTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
