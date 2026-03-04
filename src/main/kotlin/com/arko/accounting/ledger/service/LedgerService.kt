@@ -10,4 +10,5 @@ interface LedgerService {
     fun getLedgerEntries(): List<LedgerEntryResponse>
     fun getLedgerForAccount(accountId: UUID): List<LedgerEntryResponse>
     fun getBalances(): List<LedgerBalanceResponse>
+    fun reverseJournalEntry(journalEntry: JournalEntry)
 }

@@ -7,4 +7,6 @@ import java.util.*
 interface JournalEntryService {
     fun create(companyId: UUID, req: CreateJournalEntryRequest): JournalEntryDto
     fun get(id: UUID): JournalEntryDto
+    fun getAll(companyId: UUID): List<JournalEntryDto>
+    fun update(companyId: UUID, id: UUID, req: CreateJournalEntryRequest): JournalEntryDto
 }

@@ -75,6 +75,21 @@ class LedgerServiceImpl(
     override fun getBalances(): List<LedgerBalanceResponse> =
         ledgerBalanceRepo.findAll().map { it.toBalanceResponse() }
 
+    override fun reverseJournalEntry(journalEntry: JournalEntry) {
+        journalEntry.lines.forEach { line ->
+            val existing = ledgerBalanceRepo.findById(line.accountId)
+                .orElseThrow { IllegalStateException("Balance not found for account: ${line.accountId}") }
+
+            ledgerBalanceRepo.save(
+                existing.copy(
+                    debit = existing.debit - line.debit,
+                    credit = existing.credit - line.credit
+                )
+            )
+        }
+        ledgerEntryRepo.deleteByJournalEntryId(journalEntry.id)
+    }
+
     // -------------------- ANALYTICS --------------------
 
     private fun emitAnalyticsEvents(

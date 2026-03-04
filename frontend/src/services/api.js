@@ -27,6 +27,23 @@ export const api = {
     });
     return res.json();
   },
+  getJournalEntries: async (companyId) => {
+    const res = await fetch(`${API_URL}/journal-entries`, {
+      headers: { 'X-Company-ID': companyId },
+    });
+    return res.json();
+  },
+  updateJournalEntry: async (id, entry, companyId) => {
+    const res = await fetch(`${API_URL}/journal-entries/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Company-ID': companyId,
+      },
+      body: JSON.stringify(entry),
+    });
+    return res.json();
+  },
 
   // Ledger
   getLedgerEntries: async (accountId) => {

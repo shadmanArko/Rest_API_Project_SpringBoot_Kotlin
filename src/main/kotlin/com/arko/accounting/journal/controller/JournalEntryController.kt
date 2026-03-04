@@ -27,4 +27,18 @@ class JournalEntryController(
     fun get(@PathVariable id: UUID): ResponseEntity<JournalEntryDto> {
         return ResponseEntity.ok(service.get(id))
     }
+
+    @GetMapping
+    fun getAll(@RequestHeader("X-Company-ID") companyId: UUID): ResponseEntity<List<JournalEntryDto>> {
+        return ResponseEntity.ok(service.getAll(companyId))
+    }
+
+    @PutMapping("/{id}")
+    fun update(
+        @PathVariable id: UUID,
+        @RequestBody @Valid req: CreateJournalEntryRequest,
+        @RequestHeader("X-Company-ID") companyId: UUID
+    ): ResponseEntity<JournalEntryDto> {
+        return ResponseEntity.ok(service.update(companyId, id, req))
+    }
 }
