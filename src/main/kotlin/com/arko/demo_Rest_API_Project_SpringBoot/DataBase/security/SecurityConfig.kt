@@ -29,7 +29,7 @@ class SecurityConfig {
         val frontendUrl = System.getenv("FRONTEND_URL")
         
         // Allow both production frontend and localhost for development
-        val allowedOrigins = mutableListOf("http://localhost:5173", "http://localhost:3000")
+        val allowedOrigins = mutableListOf("http://localhost:5173", "http://localhost:3000", "http://localhost")
         if (frontendUrl != null && frontendUrl.isNotBlank()) {
             allowedOrigins.add(frontendUrl)
         }

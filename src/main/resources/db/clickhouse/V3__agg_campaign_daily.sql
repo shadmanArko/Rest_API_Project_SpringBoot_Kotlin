@@ -13,4 +13,5 @@ CREATE TABLE IF NOT EXISTS analytics.agg_campaign_daily
 )
 ENGINE = SummingMergeTree
 PARTITION BY toYYYYMM(date)
-ORDER BY (date, platform, account_id, campaign_id);
+ORDER BY (date, platform, account_id, campaign_id)
+SETTINGS allow_nullable_key = 1;

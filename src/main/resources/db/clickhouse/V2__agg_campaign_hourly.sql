@@ -10,4 +10,6 @@ CREATE TABLE IF NOT EXISTS analytics.agg_campaign_hourly (
   spend Float64,
   orders UInt64,
   revenue Float64
-) ENGINE = SummingMergeTree(date_hour, (platform, account_id, campaign_id), 8192);
+) ENGINE = SummingMergeTree
+PARTITION BY toYYYYMMDD(date_hour)
+ORDER BY (date_hour, platform, account_id, campaign_id);
